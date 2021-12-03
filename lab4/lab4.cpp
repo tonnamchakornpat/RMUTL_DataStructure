@@ -4,7 +4,7 @@
 #define N 5 
 
 int Q[ N ] ;
-int x, Qnumber = 0, F = 0, R = 0 ;
+int x, Qnumber = 0, F = N, R = N ;                      // ? F = 0 to F = N  && R = 0 to R = N
 char status = 'N' ;
 char ch ;
 
@@ -37,16 +37,16 @@ int main() {
     return 0  ;
 }
 void insertCQ( int y ) {
-    if( ( R == F -1 ) || ( R == N -1  && F == 1 ) ) {
+    if( ( R == F + 1 ) || ( R == 1 && F == N - 1 ) ) {      //? R == F - 1 || R == N-1 && F == 1 
         printf( "!!OVER FLOW!! \n" ) ;
         status = 'O' ;
     }else {
-        if( R == N-1 ) {
-            R = 1 ;
+        if( R == 1 ) {                                      //? R == N -1 
+            R = N - 1 ;                                     //? R = 1 
 
         } else {
-            R++ ;
-            if( F== 0 ) F = 1 ;
+            R--;                                           //? R++ ;
+            if( F == N ) F = N - 1 ;                       //? ( F == 0 ) F = 1 ;
         }
         Qnumber++ ;
         printf( "Your are queue number : %d\n", Qnumber ) ; 
@@ -57,16 +57,16 @@ void insertCQ( int y ) {
 
 int deleteCQ() {
     int y ; 
-    if( F == 0 ) {
+    if( F == N ) {                                         //? F == 0 
         printf( "\n!!!!UNDER FLOW!!!!\n" ) ;
         status = 'U' ;
     } else {
         y = Q[ F ] ;
         if( F == R ) {
-            F = 0 ; R = 0 ;
+            F = N ; R = N ;                                //? F = 0 ; R = 0 ;
         } else {
-            if( F == N-1 ) F = 1 ;
-            else F++ ; 
+            if( F == 1 ) F = N - 1  ;                      //? ( F == N -1 ) F = 1 ;
+            else F-- ;                                     //? F++ ;
         }
         status = 'N' ;
         return( y ) ;
@@ -75,11 +75,11 @@ int deleteCQ() {
 
 int DataInQueue() {
     int y = 0 ;
-    if ( F != 0 && R != 0 ) {
-        if( F <= R )  
-            y = R - F + 1 ;
+    if ( F != N && R != N  ) {                              //? F != 0 && R != 0
+        if( F >= R )                                        //? F <= R 
+            y = F - R + 1 ;
         else 
-            y = ( N-1 ) - F + 1 + R ;
+            y = ( N-1 ) - R + 1 + F ;                       //? ( N -1 ) - F + 1 + R ;
 
     }
     return y ;
