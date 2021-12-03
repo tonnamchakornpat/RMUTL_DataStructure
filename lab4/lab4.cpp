@@ -29,7 +29,7 @@ int main() {
             break;
         case '2' :
             x = deleteCQ() ;
-            printf( "\n+++Data from Queue = %d +++ \n", x ) ;
+            printf( "\nData from Queue = %d \n", x ) ;
             ShowAllQueue() ;
         }
     }
@@ -76,10 +76,13 @@ int deleteCQ() {
 int DataInQueue() {
     int y = 0 ;
     if ( F != 0 && R != 0 ) {
-        if( F < R )  y = R - F + 1 ;
-        else y = ( N-1 ) - F + 1 + R ;
+        if( F <= R )  
+            y = R - F + 1 ;
+        else 
+            y = ( N-1 ) - F + 1 + R ;
+
     }
-    return ( y ) ;
+    return y ;
 }
 
 void ShowAllQueue() {
@@ -87,8 +90,8 @@ void ShowAllQueue() {
     printf( "\nN : %d \n", N-1 ) ;
     printf( "Status = %c \n", status ) ;
     printf( "Data Waiting in queue = %d \n", DataInQueue() ) ;
-    printf( "F = %3d  / R = %3d\n", F, R ) ;
-    for( i = 1 ; i < N ; i++ )  printf( "%d : %d /", i, Q[i] ) ;
+    printf( "F = %3d  / R = %3d \n", F, R ) ;
+    for( i = 1 ; i < N ; i++ )  printf( " %d : %d /", i, Q[i] ) ;
     printf( "\n=======================\n" ) ;
 }
 
