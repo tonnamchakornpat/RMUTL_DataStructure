@@ -76,8 +76,8 @@ int deleteCQ() {
 int DataInQueue() {
     int y = 0 ;
     if ( F != N && R != N  ) {                              //? F != 0 && R != 0
-        if( F >= R )                                        //? F <= R 
-            y = F - R + 1 ;
+        if( F >= R )                                        //? F <= R  
+            y = F - R + 1 ;                                 //? R - SF + 1 ;
         else 
             y = ( N-1 ) - R + 1 + F ;                       //? ( N -1 ) - F + 1 + R ;
 
