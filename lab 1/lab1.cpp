@@ -152,7 +152,7 @@ void UnsignedLongInt() {
     printf("================================\n") ; 
     printf( "Enter Raw Data : " ) ; 
     scanf( "%lu",&data ) ; 
-    printf( "Data in Decimal = %luD\n", data ) ;    // ? Show in Decimal format 
+    printf( "Data in Decimal = %lu\n", data ) ;    // ? Show in Decimal format 
     printf( "Data in Hexamal = %xH\n", data ) ;     // ? Show in Hexamal format
     printf( "Data in Binary  = " ) ;                 
     DecToBin( data, sizeof(data) ) ;                // ? Show in Binary format 

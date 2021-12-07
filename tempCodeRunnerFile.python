@@ -1,9 +1,0 @@
-now = datetime.datetime.now() 
-future = now + datetime.timedelta( minutes = 1 ) 
-while True :
-    if now >= future :
-        print("True")
-    else: 
-        print("false")
-
-    time.sleep(60)
