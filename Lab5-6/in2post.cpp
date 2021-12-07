@@ -5,11 +5,32 @@
 
 #define MaxStack 80
 
-//char infix1[80] = {"(((A+B)-C)/d)"};
-char infix1[80] ;
+char infix1[80];
 char postfix_output[80];
 char OpSt[MaxStack];
 int SP = 0;
+
+void infixTOpostfix(char infix2[80]) ;
+int precedenceST(char oper) ;
+int precedenceIP(char oper) ;
+int pop();
+void push(char oper);
+char push_postfix(char inputChar);
+
+
+int main()
+{
+    CalPost post;
+    printf("\nInsert INFIX : ");
+    scanf("%[^\n]", infix1);
+    printf("\n==================================\n");
+    printf("INFIX to POSTFIX CONVERSION PROGRAM\n");
+    printf("==================================\n");
+    infixTOpostfix(infix1);
+    getch();
+    post.PostF_Conver(postfix_output);
+    return 0;
+}
 
 char push_postfix(char inputChar)
 {
@@ -130,19 +151,5 @@ void infixTOpostfix(char infix2[80])
     {
         printf("%c", pop());
     }
-    printf("\n") ;
-}
-
-int main()
-{
-    CalPost post;
-    printf("\nInsert INFIX : ") ;
-    scanf("%[^\n]",infix1) ;
-    printf("\n==================================\n");
-    printf("INFIX to POSTFIX CONVERSION PROGRAM\n");
-    printf("==================================\n");
-    infixTOpostfix(infix1);
-    getch();
-    post.PostF_Conver(postfix_output);
-    return 0;
+    printf("\n");
 }
