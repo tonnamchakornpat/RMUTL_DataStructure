@@ -110,9 +110,7 @@ void infixTOpostfix(char infix2[80])
                 {
                     printf("%c", push_postfix(pop()));
                     while (precedenceIP(ch) <= precedenceST(OpSt[SP]) && (SP != 0))
-                    {
                         printf("%c", push_postfix(pop()));
-                    }
                     push(ch);
                 }
             }
