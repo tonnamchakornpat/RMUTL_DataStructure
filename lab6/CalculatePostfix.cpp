@@ -20,7 +20,6 @@ void push(float ValOperand)
         SP = SP + 1;
         ValOperandST[SP] = ValOperand;
     }
-    printf("%d %f",SP, ValOperandST[SP]) ;
 }
 
 float pop()
