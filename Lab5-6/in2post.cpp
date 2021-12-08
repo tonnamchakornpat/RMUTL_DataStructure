@@ -1,22 +1,21 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
-#include "PostCalculate/calPost.h"
+#include "PostCalculate/calPost.h" //? use PostF_Conver
 
-#define MaxStack 80
+#define MaxStack 40
 
 char infix1[80];
-char postfix_output[80];
+char postfix_output[80]; //? create postfix_output for get Postfix and send to PostF_Conver
 char OpSt[MaxStack];
 int SP = 0;
 
-void infixTOpostfix(char infix2[80]) ;
-int precedenceST(char oper) ;
-int precedenceIP(char oper) ;
+void infixTOpostfix(char infix2[80]);
+int precedenceST(char oper);
+int precedenceIP(char oper);
 int pop();
 void push(char oper);
 char push_postfix(char inputChar);
-
 
 int main()
 {
@@ -32,6 +31,7 @@ int main()
     return 0;
 }
 
+//Todo get Postfix output Char to save on postfix_output 
 char push_postfix(char inputChar)
 {
     strncat(postfix_output, &inputChar, 1);
@@ -149,7 +149,7 @@ void infixTOpostfix(char infix2[80])
     j = SP;
     for (i = 1; i <= j; i++)
     {
-        printf("%c", pop());
+        printf("%c", push_postfix(pop()));
     }
     printf("\n");
 }
