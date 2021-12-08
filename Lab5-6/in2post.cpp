@@ -31,7 +31,7 @@ int main()
     return 0;
 }
 
-//Todo get Postfix output Char to save on postfix_output 
+// Todo get Postfix output Char to save on postfix_output
 char push_postfix(char inputChar)
 {
     strncat(postfix_output, &inputChar, 1);
@@ -130,7 +130,7 @@ void infixTOpostfix(char infix2[80])
                 else
                 {
                     printf("%c", push_postfix(pop()));
-                    while (precedenceIP(ch) <= precedenceST(OpSt[SP]) && (SP != 0))
+                    while (precedenceIP(ch) <= precedenceST(OpSt[SP]) && SP != 0)
                         printf("%c", push_postfix(pop()));
                     push(ch);
                 }
