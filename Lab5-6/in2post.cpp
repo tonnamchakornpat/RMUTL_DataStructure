@@ -60,10 +60,6 @@ int pop()
         SP--;
         return (oper);
     }
-    else
-    {
-        printf("\nErro Stack Under Flow!!!...\n");
-    }
 }
 
 int precedenceIP(char oper)
