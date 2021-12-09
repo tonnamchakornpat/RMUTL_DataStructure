@@ -4,7 +4,7 @@
 #define N 5 
 
 int Q[ N ] ;
-int x, Qnumber = 0, F = N, R = N ;                      // ? F = 0 to F = N  && R = 0 to R = N
+int x, Qnumber = 0, F = N, R = N ;                      // ? F = 0  && R = 0 
 char status = 'N' ;
 char ch ;
 
