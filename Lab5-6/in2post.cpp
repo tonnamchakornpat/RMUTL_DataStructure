@@ -136,7 +136,7 @@ void infixTOpostfix(char infix2[80])
                 temp = pop();
                 while ((temp != '('))
                 {
-                    printf("%c", temp);
+                    printf("%c", push_postfix(temp));
                     temp = pop();
                 }
             }
