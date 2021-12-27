@@ -13,6 +13,49 @@ struct Node *H, *H1, *p, *q;
 int i, j, k, n, data;
 char ch;
 
+Node *Allocate();
+void CreateNNode(int);
+void ShowAllNode();
+void InsertAfter(int);
+void DeleteAfter(int);
+
+int main()
+{
+    p = Allocate();
+    p->info = HeadData;
+    p->link = p;
+    n = 10;
+    CreateNNode(n);
+    printf("PROGREAM SINGLY CIRCULAR LINKED LIST \n");
+    printf("=====================================\n");
+    printf("All Data in Linked List \n");
+    ShowAllNode();
+    ch = ' ';
+    while (ch != 'E')
+    {
+        printf("MENU : [I:Insert D:Delete E:Exit]");
+        ch = getch();
+        switch (ch)
+        {
+        case 'I':
+            printf("\nInsert After data :");
+            scanf("%d", &data);
+            InsertAfter(data);
+            printf("All Data in Linked List AFTER ");
+            ShowAllNode();
+            break;
+        case 'D':
+            printf("\nDelete After data :");
+            scanf("%d", &data);
+            DeleteAfter(data);
+            printf("\nAll Data in LInked list AFTER ");
+            ShowAllNode();
+            break;
+        }
+    }
+    return 0;
+}
+
 Node *Allocate() //* Allocate 1 node from storage  pool
 {
     struct Node *temp;
@@ -67,7 +110,7 @@ void InsertAfter(int data1)
                 printf("\nInsert data :");
                 scanf("%d", &temp);
                 p->info = temp;
-                p->link = H1 -> link;
+                p->link = H1->link;
                 H1->link = p;
             }
             H1 = H1->link;
@@ -102,41 +145,4 @@ void DeleteAfter(int data1)
             H1 = H1->link;
         }
     }
-}
-
-int main()
-{
-    p = Allocate();
-    p->info = HeadData;
-    p->link = p;
-    n = 10;
-    CreateNNode(n);
-    printf("PROGREAM SINGLY CIRCULAR LINKED LIST \n");
-    printf("=====================================\n");
-    printf("All Data in Linked List \n");
-    ShowAllNode();
-    ch = ' ';
-    while (ch != 'E')
-    {
-        printf("MENU : [I:Insert D:Delete E:Exit]");
-        ch = getch();
-        switch (ch)
-        {
-        case 'I':
-            printf("\nInsert After data :");
-            scanf("%d", &data);
-            InsertAfter(data);
-            printf("All Data in Linked List AFTER ") ;
-            ShowAllNode() ;
-            break ;
-        case 'D' : 
-            printf("\nDelete After data :"); 
-            scanf("%d",&data) ;
-            DeleteAfter(data) ;
-            printf("\nAll Data in LInked list AFTER ")  ;
-            ShowAllNode() ;
-            break ;
-        }
-    }
-    return 0;
 }
