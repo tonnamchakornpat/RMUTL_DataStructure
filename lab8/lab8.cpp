@@ -3,7 +3,7 @@
 
 int Number;
 float Number2, ans;
-int Factorial(int N, float M)
+int Power(int N, float M)
 {
     int x;
     float y;
@@ -16,7 +16,7 @@ int Factorial(int N, float M)
     {
         x = N - 1;
         printf("%2.2f^%d = %2.2f * %2.2f ^ %d\n", M, N, M, M, x); // todo Display before Recursive
-        y = Factorial(x, M);
+        y = Power(x, M);
         printf("%2.2f^%d = %2.2f * %2.2f = %2.2f \n", M, N, M, y, M * y); // todo Dispaly AfterRecursive
         return M * y;
     }
@@ -24,7 +24,7 @@ int Factorial(int N, float M)
 
 int main()
 {
-    printf("RECURSIVE (FACTORIAL) PROGRAM\n");
+    printf("RECURSIVE (Power) PROGRAM\n");
     printf("=============================\n");
     // N=0 ;
     while (Number != -999 || Number2 != -999)
@@ -35,7 +35,7 @@ int main()
         {
             printf("N != N(N-1)! \n");
             printf("-----------------Roll forward point\n");
-            ans = Factorial(Number, Number2);
+            ans = Power(Number, Number2);
             printf("\n%.2f^%d = %.2f \n", Number2, Number, ans);
             printf("-----------------Finished\n");
             if (getch() == 'e')
