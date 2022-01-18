@@ -27,23 +27,23 @@ void CreateNNode(int n)
     H1 = NULL;
     for (i = 1; i <= n; i++)
     {
-        p = Allocate();
+        p = Allocate(); //? Allocate 1 node
         temp = 1 + rand() % 99;
-        p->info = temp;
-        if (i == 1)
-            H = p;
+        p->info = temp; //? info p = temp
+        if (i == 1)     //? check first node ?
+            H = p;      //? H -> first node( p )
         else
-            H1->rlink = p;
+            H1->rlink = p; //? set Rlink h1 to second node( p node )
         p->llink = H1;
-        H1 = p;
-        H1->rlink = NULL;
+        H1 = p;           //? H1 -> last node
+        H1->rlink = NULL; //? set Rlink H1 = NULL
     }
 }
 
 void ShowAllNode()
 {
     printf("H = %x \n", H);
-    p = H;
+    p = H; //? set p -> H ( set 2 first node for start )
     i = 1;
     while (p != NULL)
     {
@@ -51,7 +51,7 @@ void ShowAllNode()
         printf("LLINK : %x\t", p->llink);
         printf("INFO : %d\t", p->info);
         printf("RLINK : %x\n", p->rlink);
-        p = p->rlink;
+        p = p->rlink; //? set p to next node
         i++;
     }
 }
@@ -59,32 +59,32 @@ void ShowAllNode()
 void InsertAfter(int data1)
 {
     int temp;
-    if (H == NULL)
+    if (H == NULL) //? check have node ?
         printf("Linked List have no Node!!..\n");
     else
     {
-        H1 = H;
-        while (H1 != NULL)
+        H1 = H;            //? set H1 -> H ( first node )
+        while (H1 != NULL) //? search data While H1 <> NULL
         {
-            if (H1->info == data1)
+            if (H1->info == data1) //? check info H1 == data1 ?
             {
-                p = Allocate();
+                p = Allocate(); //? allocate 1 node
                 printf("\nInsert data :");
                 scanf("%d", &temp);
                 p->info = temp;
-                if (H1->rlink == NULL)
+                if (H1->rlink == NULL) //? check H1 is last Node ?
                 {
-                    p->rlink = NULL;
+                    p->rlink = NULL; //? rlink p = null ;
                 }
                 else
                 {
-                    p->rlink = H1->rlink;
-                    H1->rlink->llink = p;
+                    p->rlink = H1->rlink; //? set rlink p to point second node ( after H1 )
+                    H1->rlink->llink = p; //? set second node (after H1) to point p ( new node )
                 }
-                p->llink = H1;
-                H1->rlink = p;
+                p->llink = H1; //? llink p -> H1
+                H1->rlink = p; //? rlink H1 -> p
             }
-            H1 = H1->rlink;
+            H1 = H1->rlink; // todo set H1 to next node
         }
     }
 }
@@ -92,33 +92,33 @@ void InsertAfter(int data1)
 void InsertBefore(int data1)
 {
     int temp;
-    if (H == NULL)
+    if (H == NULL) //? check have node ?
         printf("Linked LIst have no Node!!.\n");
     else
     {
-        H1 = H;
-        while (H1 != NULL)
+        H1 = H;            //? set H1 -> H ( first node )
+        while (H1 != NULL) //? search data While H1 <> NULL
         {
-            if (H1->info == data1)
+            if (H1->info == data1) //? check info H1 == data1 ?
             {
                 p = Allocate();
                 printf("\nInsert data :");
                 scanf("%d", &temp);
                 p->info = temp;
-                if (H1->llink == NULL)
+                if (H1->llink == NULL) //? check H1 is first node ?
                 {
-                    p->llink = NULL;
-                    H = p;
+                    p->llink = NULL; //? llink p -> null
+                    H = p;           //? H -> new node
                 }
                 else
                 {
-                    H1->llink->rlink = p;
-                    p->llink = H1->llink;
+                    H1->llink->rlink = p; //? llink(rlink( p )) (rlink node before H1) -> p (new node)
+                    p->llink = H1->llink; //? llink p -> llink H1
                 }
-                H1->llink = p;
-                p->rlink = H1;
+                H1->llink = p; //? llink h1 -> p
+                p->rlink = H1; //? rlink p -> H1
             }
-            H1 = H1->rlink;
+            H1 = H1->rlink; // todo set H1 to next node
         }
     }
 }
@@ -126,36 +126,36 @@ void InsertBefore(int data1)
 void DeleteBefore(int data1)
 {
     int temp;
-    if (H == NULL)
+    if (H == NULL) //? check have node ?
         printf("Linked List have no Node!!..\n");
     else
     {
-        H1 = H;
-        while (H1 != NULL)
+        H1 = H;            //? set H1 -> H ( first node ) //? H1
+        while (H1 != NULL) //? search data While H1 <> NULL
         {
-            if (H1->info == data1)
+            if (H1->info == data1) //? check info H1 == data1 ?
             {
-                if (H1->llink == NULL)
+                if (H1->llink == NULL) //? check H1 is first node ?
                 {
                     printf("No more node from here, Can't delete it!! \n");
                 }
                 else
                 {
-                    p = H1->llink;
-                    if (p->llink == NULL)
+                    p = H1->llink;        //? p -> llink h1 ( node before H1 )
+                    if (p->llink == NULL) //? If p is first node ?
                     {
-                        H1->llink = NULL;
-                        H = H1;
+                        H1->llink = NULL; //? set llink H1 = NULL
+                        H = H1;           //? set H -> H1
                     }
                     else
                     {
-                        H1->llink = p->llink;
-                        p->llink->rlink = H1;
+                        H1->llink = p->llink; //? llink h1 -> llink p
+                        p->llink->rlink = H1; //? rlink(llink( p )) -> H1
                     }
-                    free(p);
+                    free(p); // free node to storage
                 }
             }
-            H1 = H1->rlink;
+            H1 = H1->rlink; // todo set H1 to next node
         }
     }
 }
@@ -163,43 +163,43 @@ void DeleteBefore(int data1)
 void DeleteSelf(int data1)
 {
     int temp;
-    if (H == NULL)
+    if (H == NULL) //? check have node ?
     {
         printf("Linked List have NO NODE !!..\n");
     }
     else
     {
-        H1 = H;
-        while (H1 != NULL)
+        H1 = H;            //? set H1 -> H
+        while (H1 != NULL) //? search data While H1 <> NULL
         {
-            if (H1->info == data1)
+            if (H1->info == data1) //? check info H1 == data1 ?
             {
-                p = H1;
-                if (p->llink == NULL && p->rlink == NULL)
-                    H = NULL;
+                p = H1;                                   //? set P -> H1
+                if (p->llink == NULL && p->rlink == NULL) //? check have one node ?
+                    H = NULL;                             //? set H -> NULL
                 else
                 {
-                    if (p->llink == NULL)
+                    if (p->llink == NULL) //? check first node ?
                     {
-                        H = p->rlink;
-                        H->llink = NULL;
+                        H = p->rlink;    //? set H to point rlink p  **( next node )
+                        H->llink = NULL; //? set llink H = NULL
                     }
                     else
                     {
-                        if (p->rlink == NULL)
+                        if (p->rlink == NULL) //? check last node ?
                         {
-                            p->llink->rlink = NULL;
+                            p->llink->rlink = NULL; //? set rlink( llink( p )) -> NULL
                         }
                         else
                         {
-                            p -> llink -> rlink = p -> rlink ;
-                            p -> rlink -> llink = p-> llink ;
+                            p->llink->rlink = p->rlink; //? rlink(llink( p )) -> rlink p **( set rlink node before p to point node after p)
+                            p->rlink->llink = p->llink; //? llink(rlink( p )) -> llink p **( set llink node node after p to point node before p )
                         }
                     }
-                    free(p) ;
+                    free(p); // free node to storage
                 }
             }
-            H1 = H1->rlink;
+            H1 = H1->rlink; // todo set H1 to next node
         }
     }
 }
@@ -207,33 +207,33 @@ void DeleteSelf(int data1)
 void DeleteAfter(int data1)
 {
     int temp;
-    if (H == NULL)
+    if (H == NULL) //? check have node ?
     {
         printf("Linked List have NO NODE !!..\n");
     }
     else
     {
-        H1 = H;
-        while (H1 != NULL)
+        H1 = H;            //? set H1 -> H
+        while (H1 != NULL) //? search data While H1 <> NULL
         {
-            if (H1->info == data1)
+            if (H1->info == data1) //? check info H1 == data1 ?
             {
-                if (H1->rlink == NULL)
+                if (H1->rlink == NULL) //? check H1 is last node ?
                     printf("No more node from here, can't delete it!!..\n");
                 else
                 {
-                    p = H1->rlink;
-                    if (p->rlink == NULL)
-                        H1->rlink = NULL;
+                    p = H1->rlink;        //? set p -> rlink h1 ( next node )
+                    if (p->rlink == NULL) //? check p is last node ?
+                        H1->rlink = NULL; //? rlink H1 -> NULL
                     else
                     {
-                        H1->rlink = p->rlink;
-                        p->rlink->llink = H1;
+                        H1->rlink = p->rlink; //? rlink H1 -> rlink **( set rlink H1 to point node after p)
+                        p->rlink->llink = H1; //? llink(rlink( p )) -> H1 **( set llink node after p to point H1(node before p s) )
                     }
-                    free(p);
+                    free(p); // free node to storage
                 }
             }
-            H1 = H1->rlink;
+            H1 = H1->rlink; // todo set H1 to next node
         }
     }
 }
