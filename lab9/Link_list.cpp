@@ -84,7 +84,7 @@ void ShowAllNode()
     printf("H = %x \n", H);
     p = H->link; //? p -> Link H
     i = 1;
-    while (p->info != HeadData) //? Check back to H node?
+    while (p->info != HeadData) //? Check H node?
     {
         printf("%d) %x \t", i, p);
         printf("INFO : %d \t", p->info);
@@ -113,7 +113,7 @@ void InsertAfter(int data1)
                 p->link = H1->link; //? link p -> link H1
                 H1->link = p;       //? link H1 -> p
             }
-            H1 = H1->link; // todo set H1 to next node
+            H1 = H1->link;  //todo set H1 to next node
         }
     }
 }
