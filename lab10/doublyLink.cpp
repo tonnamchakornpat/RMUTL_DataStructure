@@ -35,7 +35,7 @@ void CreateNNode(int n)
         else
             H1->rlink = p; //? set Rlink h1 to second node( p node )
         p->llink = H1;
-        H1 = p;           //? H1 -> last node
+        H1 = p;           //? H1 ->  p last node
         H1->rlink = NULL; //? set Rlink H1 = NULL
     }
 }
@@ -79,7 +79,7 @@ void InsertAfter(int data1)
                 else
                 {
                     p->rlink = H1->rlink; //? set rlink p to point second node ( after H1 )
-                    H1->rlink->llink = p; //? set second node (after H1) to point p ( new node )
+                    H1->rlink->llink = p; //? set llink second node (after H1) to point p ( new node )
                 }
                 p->llink = H1; //? llink p -> H1
                 H1->rlink = p; //? rlink H1 -> p
