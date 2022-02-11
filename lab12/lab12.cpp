@@ -159,7 +159,7 @@ void PostOrder(struct Node *i)
 
 int main()
 {
-    N = 31;
+    N = 28;
     CreateTreeNP(N);
     while (ch != 'E')
     {

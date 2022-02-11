@@ -6,6 +6,7 @@
 
 int N, data[MaxNode];
 char ch;
+
 void CreateTreeNS(int n)
 {
     int i, temp;
@@ -103,6 +104,7 @@ void InOrder(int i)
         InOrder(rson);
     }
 }
+
 void PostOrder(int i)
 {
     int info, lson, rson;
@@ -172,7 +174,7 @@ int main()
         printf("\nMenu => P: PreOrder[R-TL-TR]      I:InOrder[TL-R-TR]      O:PostOrder[TL-TR-R] ");
         printf("\n     => L: Re-PreOrder[R-TR-TL]   K:Re-InOrder[TR-R-TL]   J:Re-PostOrder[TR-TL-R]  E:Exit ");
         ch = getch();
-        printf("\n------------------------------------\n");
+        printf("\n----------------------------------------\n");
         switch (ch)
         {
         case 'P':
